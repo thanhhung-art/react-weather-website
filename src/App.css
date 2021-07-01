@@ -1,38 +1,111 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background:#ccc url(./images/bg-view.webp) no-repeat fixed center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type=text] {
+  padding: .5rem 1rem;
+  border-radius: 1rem 0 0 1rem;
+  border: none;
+  outline: none;
+  min-width: 25rem;
+  font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#btn-search {
+  background-color: #fff;
+  padding: .8rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  transform: translateX(-2rem);
+  box-shadow: 2px 2px #ccc;
+  color: #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.display {
+  width: 100%;
+  max-width: 60rem;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  animation: show 1s linear;
 }
 
-.App-link {
-  color: #61dafb;
+.display__row-1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.display__row-2 {
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px){
+  .App {
+    display: block;
+    height: auto;
   }
+
+  .display {
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .display__row-1 {
+    flex-direction: column;
+    order: 2;
+  }
+
+  .display__row-2 {
+    order: 1;
+  }
+
+  .display__row-3 {
+    order: 3;
+    margin-top: 1rem;
+  }
+
+  form {
+    position: static;
+    transform: none;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  input[type=text] {
+    min-width: 200px;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
